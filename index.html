@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <!-- Slide meta data, remove/edit as you see fit -->
+        <title>Drupal 8: What You Need To Know</title>
+        <meta name="author" content="Matthew Tift" />
+
+        <!-- jQuery + history plugin -->
+        <script type="text/javascript" src="src/jquery.min.js"></script>
+        <script type="text/javascript" src="src/jquery.history.js"></script>
+
+        <!-- Slippy core js file -->
+        <script type="text/javascript" src="src/slippy.js"></script>
+
+        <!-- Slippy structural styles -->
+        <link type="text/css" rel="stylesheet" href="src/slippy.css"/>
+
+        <!-- Slippy theme (feel free to change it) -->
+        <link type="text/css" rel="stylesheet" href="src/slippy-pure.css"/>
+
+        <!-- Syntax highlighting core file  -->
+        <script type="text/javascript" src="src/highlighter/shCore.js"></script>
+        <!-- Syntax highlighting for PHP -->
+        <script type="text/javascript" src="src/highlighter/shBrushPhp.js"></script>
+        <!-- Syntax highlighting for javascript -->
+        <script type="text/javascript" src="src/highlighter/shBrushJScript.js"></script>
+
+        <!-- Syntax highlighting core CSS and a theme -->
+        <link type="text/css" rel="stylesheet" href="src/highlighter/shCore.css"/>
+        <link type="text/css" rel="stylesheet" href="src/highlighter/shThemeEclipse.css"/>
+
+        <!-- Specific styles for this presentation -->
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
+        <!--<link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>-->
+        <link type="text/css" rel="stylesheet" href="drupal8.css"/>
+
+        <!-- Slippy init code -->
+        <script type="text/javascript">
+          $(function() {
+              $(".slide").slippy({
+                //animLen: 0,
+                margin: 0.05
+              });
+              SyntaxHighlighter.all();
+          });
+        </script>
+
+        <!-- Custom style for this deck -->
+        <style type="text/css">
+            .slide.nofooter {
+                border: 0;
+                background: 0;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="footer">
+            <span class="right"><a style="text-decoration: none; font-size: 1.5em;" href="http://www.matthewtift.com/">matthewtift.com</a></span>
+            <span style="text-align: center; font-size: 1.5em;">Twin Cities Drupal Camp 2013 &nbsp; &nbsp; <em>Drupal 8: What You Need To Know</em></span>
+            <span class="left"><a style="text-decoration: none; font-size: 1.5em;" href="https://twitter.com/matthewtift">@matthewtift</a></span>
+            <hr class="defloat" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1><span style="color: #097EBD; font-size: 1.7em;">Drupal 8</span><br />What You Need To Know</h1>
+            <img alt="tcdc-logo" style="width: 200px" src="images/tcdc-logo.jpg"/>
+            <!--<img alt="tcdc-logo" src="images/images/d8wyntk.jpg"/>-->
+        </div>
+
+        <div class="slide" data-background="images/tift-canyon.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>I'm Matthew Tift</h1>
+                    <h4 class="incremental">Twin Cities Drupal Camp organizer</h4>
+                    <h4 class="incremental">Developer at Wisconsin Public Radio</h4>
+                    <h4 class="incremental">Drupal core contributor (since 2010)</h4>
+                    <h4 class="incremental">Formerly a musicology professor</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Acknowledgements</h1>
+            <h4><em>Jess Myrbo</em> (xjm)</h4>
+            <h4><em>Cathy Theys</em> (YesCT)</h4>
+            <h4><em>Angela Byron</em> (webchick)</h4>
+            <h4><em>Jen Lampton</em> (jenlampton)</h4>
+            <h4><em>Gábor Hojtsy</em> (Gábor Hojtsy)</h4>
+            <h4><em>Dries Buytaert</em> (Dries)</h4>
+            <h4><em>Larry Garfield</em> (Crell)</h4>
+            <h4><em>Kristof De Jaeger</em> (swentel)</h4>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Today</h1>
+            <h3 class="incremental">D8: The Big Picture</h3>
+            <h3 class="incremental">Major D8 Initiatives</h3>
+            <h3 class="incremental">How You Can Help</h3>
+        </div>
+
+        <div class="slide">
+            <h1>Drupal 8 Timeline</h1>
+            <h3 class="incremental"><em style="font-family: Courier">Jan 2011:</em> Drupal 7.0 Release</h3>
+            <h3 class="incremental"><em style="font-family: Courier">Mar 2011:</em> D8 Development Begins</h3>
+            <h3 class="incremental"><em style="font-family: Courier">Feb 2013:</em> Feature Freeze</h3>
+            <h3 class="incremental"><em style="font-family: Courier">Jul 2013:</em> API Freeze</h3>
+            <h3 class="incremental"><em style="font-family: Courier">&nbsp;Current:</em> Polish phase</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <img alt="summary" src="images/summary.png"/>
+        </div>
+
+        <div class="slide" align="center">
+            <h2>When should I<br/>move to Drupal 8?</h2>
+            <h1 class="incremental" style="margin-top: 1em;">2014</h1>
+            <p class="incremental">(According to Dries)</p>
+        </div>
+
+        <div class="slide" align="center">
+            <h3>What is exciting about Drupal 8?</h3>
+            <iframe width="560" height="315" src="//www.youtube.com/embed/PDBGluyY0B8" frameborder="0"></iframe>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>D8 Initiatives</h1>
+            <h4 class="incremental">Mobile</h4>
+            <h4 class="incremental">Configuration Management</h4>
+            <h4 class="incremental">HTML5</h4>
+            <h4 class="incremental">Layouts</h4>
+            <h4 class="incremental">Multilingual</h4>
+            <h4 class="incremental">Views in Core</h4>
+            <h4 class="incremental">Web Services</h4>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br />Related Efforts</h1>
+            <h3 class="incremental">Successful, if not "Official"</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Spark</h1>
+            <h3 class="incremental">Drupal 7 distribution</h3>
+            <h3 class="incremental">Incubator for Drupal 8</h3>
+            <h3 class="incremental">Focus on authoring experience</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Twig</h1>
+            <h3 class="incremental">Template engine for PHP</h3>
+            <h3 class="incremental">Fast, Secure, Flexible</h3>
+            <h3 class="incremental">Convert all the <em>.tpl.php</em> files to <em>.twig</em></h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Nearly 30 Other Community Initiatives</h1>
+            <h4><a href="https://drupal.org/community-initiatives/drupal-core#other">drupal.org/community-initiatives/drupal-core#other</a></h4>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Status: July 2012</h1>
+            <img alt="status" style="width: 450px;" src="images/status-jul-2012.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Current Status</h1>
+            <img alt="status" style="width: 450px;" src="images/initiatives-status.png" />
+        </div>
+
+
+
+        <!-- Mobile -->
+        <div class="slide" data-background="images/mobile-devices.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Drupal 8</h1>
+                    <h1>Mobile Initiative</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Dries Buytaert</h1>
+            <p>March 8, 2011</p>
+            <br/>
+            <h3 class="incremental">"If I were to start Drupal from scratch today, I'd build it for mobile experiences first, and desktop experience second."</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Front-end Performance</h1>
+            <h3 class="incremental"><a href="http://www.stevesouders.com/blog/2012/02/10/the-performance-golden-rule/" style="text-decoration: none
+            ">Some studies show up to 80-90% of a page’s render time takes place in the front-end</a></h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Step One</h1>
+            <h3>D7 Documentation</h3>
+            <h3><a href="https://drupal.org/documentation/mobile" target="_blank">drupal.org/documentation/mobile</a></h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>All D8 Themes:<br /><em>Responsive</em></h1>
+            <h3 class="incremental"><em>&#x2713;</em> Bartik</h3>
+            <h3 class="incremental"><em>&#x2713;</em> Stark</h3>
+            <h3 class="incremental"><em>&#x2713;</em> Seven</h3>
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D7 Problem:</em></h3>
+                <h3>Mobile</h3>
+                <h3>Experience</h3>
+            </div>
+            <img alt="d7 mobile" style="height: 450px" src="images/d7-mobile.png" />
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D8 Solution:</em></h3>
+                <h3>Mobile</h3>
+                <h3>Experience</h3>
+            </div>
+            <img alt="d8 mobile" style="height: 450px" src="images/d8-mobile.png" />
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D7 Problem:</em></h3>
+                <h3>Mobile Menus</h3>
+            </div>
+            <img alt="d7 menu" style="height: 450px" src="images/d7-mobile-menus.png" />
+        </div>
+
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D8 Solution:</em></h3>
+                <h3>Responsive Toolbar</h3>
+                <h3>(Spark)</h3>
+            </div>
+            <img alt="d8 menu" style="height: 450px" src="images/d8-mobile-menus.png" />
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D7 Problem:</em></h3>
+                <h3>Adding Mobile</h3>
+                <h3>Content</h3>
+            </div>
+            <img alt="d7 add content" style="height: 450px" src="images/d7-mobile-add-content.png" />
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 3em;"><em>D8 Solution:</em></h3>
+                <h3>Responsive</h3>
+                <h3>Admin Screens</h3>
+            </div>
+            <img alt="d8 add content" style="height: 450px" src="images/d8-mobile-add-content.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Breakpoint Module</h2>
+            <img alt="breakpoint" src="images/breakpoint-module.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Picture Module</h2>
+            <img alt="picture module" src="images/picture-module.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>D8 Mobile:<br />How You Can Help</h1>
+            <p><a href="https://groups.drupal.org/mobile">groups.drupal.org/mobile</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>John Albin Wilkins</h4>
+            <h4><em style="font-family: Courier">Issue Tag: </em>mobile</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-mobile</h4>
+        </div>
+
+
+
+        <!-- Usability -->
+        <div class="slide" align="center">
+            <h1>Usability</h1>
+            <img alt="drupal books" style="width: 50%;" src="images/usability.jpg" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>CKEditor<br /></h2>
+            <img alt="ckeditor core" src="images/ckeditor.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>CKEditor<em> In Core</em></h2>
+            <h4>(Spark)</h4>
+            <br /> 
+            <img alt="ckeditor core" src="images/ckeditor-core.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Form Editing</h2>
+            <img alt="edit screen" src="images/edit-screen.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>In-Place Editing</h2>
+            <img alt="in place editing" src="images/in-place-editing.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <img alt="so you're telling me" style="margin-top: -2em;" src="images/so-youre-telling-me.jpg" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Tour Module</h2>
+            <img alt="tour module" src="images/tour-module.png" />
+            <p><a href="https://drupal.org/node/2040369" target="_blank">Not currently working</a></p>
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Select Multiple Files</h2>
+            <img alt="file selector" style="width: 400px;" src="images/file-selector.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Multiple Upload</h2>
+            <img alt="select four files" src="images/four-files.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Drag-n-Drop</h2>
+            <img alt="drag-n-drop" style="width: 300px;" src="images/drag-drop.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>D8 Usability:<br />How You Can Help</h1>
+            <p><a href="https://groups.drupal.org/usability">groups.drupal.org/usability</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>Bohjan Somers &amp; Roy Scholten</h4>
+            <h4><em style="font-family: Courier">Issue Tag: </em>usability</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-usability</h4>
+        </div>
+
+
+
+        <!-- Configuration Management -->
+        <div class="slide" data-background="images/wrenches.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Drupal 8:<br />Configuration Management</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1><em>D7 Problem:</em></h1>
+            <h3>No good way to move Drupal configuration information between environments</h3>
+        </div>
+
+        <div class="slide">
+            <h1><em>D7 Problem:</em></h1>
+            <h3>Every module stores their configuration data in a different format</h3>
+        </div>
+
+        <div class="slide">
+            <h1>D8 Configuration API</h1>
+            <h3>Provides a central place for modules to store configuration data, such as site name or image styles</h3>
+        </div>
+
+        <div class="slide">
+            <h1>CMI for Developers</h1>
+            <h4>Replaces functions like <em>variable_get()</em></h4>
+            <img alt="variable_get tombstone" style="width: 300px;" src="images/variable_get-tombstone.jpg" />
+            <pre class="brush: php">
+                $config = config('prefix.name');
+                $config->get('my.value');
+                $config->set('my.value','my new value');
+                $config->save();
+            </pre>
+        </div>
+
+        <div class="slide">
+            <h2>Configuration data<br />stored in YAML files</h2>
+            <p>/sites/default/files/config_xxx/active/system.site.yml</p>
+            <pre class="brush: js">
+                name: d8.local
+                mail: admin@example.com
+                slogan: ''
+                page:
+                  403: ''
+                  404: ''
+                front: node
+                admin_compact_mode: '0'
+                weight_select_max: '100'
+                langcode: en
+            </pre>
+        </div>
+
+        <div class="slide">
+            <h1>Lots of <em>.yml</em> files</h1>
+            <img alt="yml files" src="images/yml-files.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>New Rule</h1>
+            <h3><em>"Don't hack core"</em><br />is replaced by<br /><em>"Don't hack your active config"</em><br />in Drupal 8</h3>
+            <p align="center">-Alex Pott, Drupal Core and CMI Maintainer</p>
+         </div>
+
+        <div class="slide">
+            <h1><br /><em>.info</em> files are now<br /><em>.info.yml</em> files</h1>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Configuration Management:<br />How You Can Help</h1>
+            <p><a href="https://groups.drupal.org/cmi">groups.drupal.org/cmi</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>Greg Dunlap</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-cmi</h4>
+        </div>
+
+
+
+        <!-- HTML5 -->
+        <div class="slide" align="center">
+            <h1>Drupal 8: HTML5</h1>
+            <img alt="html5" style="width: 250px;" src="images/html5.png" />
+        </div>
+
+         <div class="slide">
+            <h1><br />Switch Drupal's<br />default doctype from<br />XHTML to HTML5</h1>
+        </div>
+
+         <div class="slide">
+            <h1><br />HTML5 Form Elements</h1>
+            <h3>url, email, tel, date, color, range, number, search, and more!</h3>
+        </div>
+
+
+
+       <!-- Layouts -->
+        <div class="slide" data-background="images/layouts.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Drupal 8:<br />Blocks and Layouts<br/></h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1><em>D7 Problem:</em></h1>
+            <h3 class="incremental">Blocks vs elements</h3>
+            <h3 class="incremental">Only one layout</h3>
+            <h3 class="incremental">Multiple instances of a single block</h3>
+        </div>
+
+        <div class="slide">
+            <h1><em>D8 Solution:</em><br />Plugin API</h1>
+            <h3 class="incremental">Replaces hook_info()</h3>
+            <h3 class="incremental">Changes how developers extend Drupal</h3>
+            <h3 class="incremental">Reusable code components</h3>
+        </div>
+
+        <div class="slide">
+            <h1><br />Plugin API Documentation</h1>
+            <h2><a target="_blank" href="http://drupal.org/node/1637614">drupal.org/node/1637614</a></h2>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Layouts:<br />How You Can Help</h1>
+            <p><a href="https://groups.drupal.org/scotch">https://groups.drupal.org/scotch</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>Kris Vanderwater</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-scotch</h4>
+        </div>
+
+
+
+        <!-- Multilingual -->
+        <div class="slide" data-background="images/multilingual.png">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Drupal 8</h1>
+                    <h1>Multilingual<br/></h1>
+                    <a href="https://commons.wikimedia.org/wiki/File%3AMultilingual.png">Photo: Fluss</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><em>D7 Problem:</em></h1>
+            <h3 class="incremental">Not possible to remove English</h3>
+            <h3 class="incremental">Manually download language files</h3>
+            <h3 class="incremental">Translating description, alt, title, tags</h3>
+            <h3 class="incremental">Bazillion modules needed</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Choose Language on First Screen</h2>
+            <h4>Nearly 100 languages available</h4>
+            <img alt="First Screen" style="width: 90%" src="images/language-first.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>English is now optional</h2>
+            <img alt="Installation Language" style="width: 90%" src="images/installation-language.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Automatic Translation Importing</h2>
+            <img alt="Automatic Translation Import" style="width: 90%" src="images/automatic-translation-import.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Easier right to left styling</h2>
+            <img alt="Automatic Translation Import" style="width: 90%" src="images/d8-rtl.png" />
+        </div>
+
+        <div class="slide">
+            <h2>Entity Translation API</h2>
+            <h4>Drupal 7</h4>
+            <pre class="brush: php">
+                $field = field_info_field('field_foo');
+                $langcode = field_is_translatable($entity_type, $field) ? $active_langcode : LANGUAGE_NONE;
+                $value = $entity->field_foo[$langcode][0]['value'];
+            </pre>
+            <h4>Drupal 8</h4>
+            <pre class="brush: php">
+                $translation = $entity->getTranslation($active_langcode);
+                $value = $translation->field_foo->value; 
+            </pre>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Multilingual:<br />How You Can Help</h1>
+            <p><a href="http://www.drupal8multilingual.org/">drupal8multilingual.org</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>Gábor Hojtsy</h4>
+            <h4><em style="font-family: Courier">Issue Tag: </em>D8MI</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-i18n</h4>
+            <h4><em style="font-family: Courier">Sunday: </em>YesCT Sprint!</h4>
+        </div>
+
+
+
+        <!-- Views in Core -->
+        <div class="slide" align="center">
+            <h1>Drupal 8: Views in Core</h1>
+            <img alt="views in core" style="width: 60%; margin-left: 2em;" src="images/views-in-core.jpg" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Views in Core<br /><em>Born here at Twin Cities Drupal Camp in 2012</em></h1>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><em>Views</em><br />Merged into core on<br />Oct. 22, 2012</h1>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>No Wait for Views</h1>
+            <img alt="views in d7" src="images/d7-views.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Views in Core Highlights</h1>
+            <h4 class="incremental">Uses the new plugin system</h4>
+            <h4 class="incremental">All views go to disk</h4>
+            <h4 class="incremental">Views exported as YAML (using CMI)</h4>
+            <h4 class="incremental">HTML tables are responsive</h4>
+            <h4 class="incremental">Views Bulk Operations</h4>
+            <h4 class="incremental">Support for REST and data serialization</h4>
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Homepage is a VIEW</h2>
+            <img alt="homepage" style="width: 90%" src="images/homepage.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h2>Content and People Pages are views</h2>
+            <img alt="content and people pages" style="width: 90%" src="images/content-people-views.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <img alt="mind blown" style="width: 40%" src="images/mind-blown.gif" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Views In Core:<br />How You Can Help</h1>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Issue Tag: </em>VDC</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-vdc</h4>
+        </div>
+
+
+
+        <!-- WSCCI -->
+        <div class="slide" data-background="images/wscci.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Drupal 8</h1>
+                    <h1>Web Services</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <h1><em>D7 Problem:</em></h1>
+            <h3>Drupal assumes it will be delivering a blog-like HTML page</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h2><br />The <em>Web Services and Context Core Initiative</em> (WSCCI) aims to transform Drupal from a first-class CMS to a first-class REST server with a first-class CMS on top of it</h2>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Symfony2<br />HttpKernel component</h1>
+            <h3>Handles web requests</h3>
+            <img alt="symfony" style="width: 200px;" src="images/symfony.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br />REST/serialization support</h1>
+            <h3>Expose any View as a serialized resource collection</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Guzzle HTTP client library</h1>
+            <h3>Added to replace <em>drupal_http_request()</em></h3>
+            <img alt="guzzle" src="images/guzzle.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Unit-Testable Code</h1>
+            <h3><em>Dependency Injection Container</em> to help make code more unit testable</h3>
+            <img alt="phpunit" style="width: 35%; margin-left: 2em;" src="images/phpunit.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br/>Drupal 8 is a web service</h1>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>D8 Web Services:<br />How You Can Help</h1>
+            <p><a href="https://groups.drupal.org/wscci">https://groups.drupal.org/wscci</a></p>
+            <br /> <br />
+            <h4><em style="font-family: Courier">Lead: </em>Larry Garfield</h4>
+            <h4><em style="font-family: Courier">Issue Tag: </em>wscci</h4>
+            <h4><em style="font-family: Courier">IRC: </em>#drupal-wscci</h4>
+        </div>
+
+
+
+        <!--Other Goodies -->
+        <div class="slide" data-background="images/goodies.jpg">
+            <div style="background-color: white; padding: 1em; opacity:0.9;">
+                <div style="opacity:1;">
+                    <h1>Other Goodies</h1>
+                    <a href="https://commons.wikimedia.org/wiki/File%3AMother's_Day_goodies_with_macarons.jpg">Photo: Bryan Ochalla</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h2 style="margin-top: 2em;"><em>Twig</em><br />New template engine</h2>
+            </div>
+            <img alt="twig" style="width: 45%; margin-left: 30px;" src="images/twig.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br /><em>tpl.php</em> files are gone</h1>
+        </div>
+
+        <div class="slide" align="center">
+            <h2><br />Bye-bye template process layer and process functions</h2>
+            <h3><strike>template_process_HOOK() MODULE_process_HOOK() THEME_process_HOOK()</strike></h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br />TCDC: Saturday 1 PM</h1>
+            <h4>"Twig &amp; The New Theme Layer in Drupal 8"</h4>
+            <h4>jenlampton and Cottser</h4>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br />PSR-0 compatible<br />class loader in core</h1>
+            <h3>Symfony2 ClassLoader</h3>
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 40%;">
+                <h3 style="margin-top: 2em;"><em>Composer</em> to handle Drupal Core PHP dependencies</h3>
+            </div>
+            <img alt="composer" style="width: 40%" src="images/composer.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Internet Explorer 6/7/8 no longer fully supported</h1>
+            <img alt="ie6 death" src="images/ie6-death.jpg" />
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Modules in <em>/modules</em></h1>
+            <h1>Themes in <em>/themes</em></h1>
+            <h3><br /><em>/sites/all/</em> is still supported</h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Improved Accessiblity</h1>
+            <h4><a style="text-decoration: none;" href="https://groups.drupal.org/accessibility">groups.drupal.org/accessibility</a></h4>
+            <h2><br />TCDC: Saturday at 2:15 PM</h2>
+            <h4>"Accessible in 8"</h4>
+            <h4>jessebeach</h4>
+        </div>
+
+
+
+
+        <!-- Wrap up -->
+        <div class="slide" align="center">
+            <h3>Anthony Ferrara <em>(ircmaxell)</em></h3>
+            <img alt="d8 cyclomatic complexity" src="images/cyclomatic-complexity.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <img alt="d8 is awesome" src="images/awesome-drupal.png" />
+        </div>
+
+        <div class="slide" align="center">
+            <h3><br />Drupal 8 is getting <em>more</em> object oriented, but there still many, many hooks</h3>
+        </div>
+
+        <div class="slide">
+            <div style="float: left; width: 45%; margin-left: 1em;">
+                <h3 style="margin-top: 1.5em;">Core Mentoring</h3>
+                <p><a href="https://drupal.org/core-mentoring">drupal.org/core-mentoring</a></p>
+                <p>Twitter: <a style="text-decoration: none;" href="https://twitter.com/drupalmentoring">@drupalmentoring</a></p>
+                <p><br />Tuesdays at 9pm CDT</p>
+                <p>Wednesdays at 11am CDT</p>
+            </div>
+            <div style="float: right; width: 45%;">
+                <img alt="help wanted sign" src="images/help-wanted.jpg" />
+                <a href="https://secure.flickr.com/photos/thewmatt/">Photo: Thewmatt</a>
+            </div>
+        </div>
+
+        <div class="slide" align="center">
+            <h1>Sprints on Sunday</h1>
+            <h3>9:30 AM to 5 PM</h3>
+            <h3>Nerdery (Bloomington)</h3>
+            <h3>Core, Twig, Media Module</h3>
+            <h3>Breakfast bar, coffee, pizza, Red Bull, pop</h3>
+            <h3><em>Great place to learn and contribute!</em></h3>
+        </div>
+
+        <div class="slide" align="center">
+            <h1><br />Matthew Tift</h1>
+            <h3><a style="text-decoration: none;" href="https://matthewtift.com/talks/d8">matthewtift.com/talks/d8</a></h3>
+            <h3><a style="text-decoration: none;" href="https://twitter.com/matthewtift">Twitter: @matthewtift</a></h3>
+        </div>
+
+    </body>
+</html>

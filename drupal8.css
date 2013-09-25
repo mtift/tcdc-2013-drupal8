@@ -1,0 +1,40 @@
+/* Custom CSS for this presentation */
+body, html {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    /*font-family: 'Ubuntu', sans-serif;*/
+}
+
+h1 {
+    font-size: 5.5em;
+    color: #2C3845;
+    text-align: center;
+    margin: 0 0 0.2em 0;
+}
+h2 {
+    font-size: 4em; 
+    color: #2C3845;
+    text-align: center;
+    margin: 0 0 0.5em 0;
+}
+h3 {
+    font-size: 3.5em;
+    color: #628179;
+    margin: 0 0 0.2em 0;
+}
+h4 {
+    font-size: 2.5em;
+    color: #628179;
+    margin: 0 0 0.2em 0;
+}
+p {
+    font-size: 1.5em;
+}
+em {
+    color: #BD2A4E;
+}
+
+/* Other colors */
+// #654B6B
+// #628179
+// #899738
+
